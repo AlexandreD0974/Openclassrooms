@@ -44,6 +44,8 @@ private:
     int m_degatsArme;
 };
 
+#endif
+
 int main()
 {
     Personnage david, goliath;
