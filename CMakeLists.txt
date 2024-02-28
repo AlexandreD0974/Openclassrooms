@@ -3,4 +3,6 @@ project(Openclassrooms)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Openclassrooms main.cpp)
+add_executable(Openclassrooms main.cpp
+        Personnage.cpp
+        Personnage.h)
