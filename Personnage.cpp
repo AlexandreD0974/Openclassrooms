@@ -4,12 +4,20 @@
 
 #include "Personnage.h"
 
-#include<string>
-
 using namespace std;
 
-void Personnage::recevoirDegats(int nbDegats)
-{
+Personnage::Personnage(std::string nomArme, int degatsArme) {
+    m_nomArme = nomArme;
+    m_degatsArme = degatsArme;
+}
+
+Personnage::Personnage(Personnage const &autre) {
+    m_nomArme = autre.m_nomArme;
+    m_degatsArme = autre.m_degatsArme;
+}
+
+
+void Personnage::recevoirDegats(int nbDegats){
     m_vie -= nbDegats;
     //On enlève le nombre de dégâts reçus à la vie du personnage
 
@@ -19,14 +27,12 @@ void Personnage::recevoirDegats(int nbDegats)
     }
 }
 
-void Personnage::attaquer(Personnage &cible)
-{
+void Personnage::attaquer(Personnage &cible){
     cible.recevoirDegats(m_degatsArme);
     //On inflige à la cible les dégâts que cause notre arme
 }
 
-void Personnage::boirePotionDeVie(int quantitePotion)
-{
+void Personnage::boirePotionDeVie(int quantitePotion){
     m_vie += quantitePotion;
 
     if (m_vie > 100) //Interdiction de dépasser 100 de vie
@@ -35,14 +41,16 @@ void Personnage::boirePotionDeVie(int quantitePotion)
     }
 }
 
-void Personnage::changerArme(string nomNouvelleArme, int degatsNouvelleArme)
-{
+void Personnage::changerArme(string nomNouvelleArme, int degatsNouvelleArme){
     m_nomArme = nomNouvelleArme;
     m_degatsArme = degatsNouvelleArme;
 }
 
-bool Personnage::estVivant()
-{
+bool Personnage::estVivant(){
     return m_vie > 0;
 }
+
+
+
+
 

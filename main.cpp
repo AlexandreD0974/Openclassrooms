@@ -1,55 +1,15 @@
 #include <iostream>
 #include <string>
+#include "Personnage.h"
 
 using namespace std;
-
-class Personnage
-{
-
-public :
-    // Méthodes
-
-
-    void recevoirDegats(int nbDegats)
-    {
-
-    }
-
-    void attaquer(Personnage &cible)
-    {
-
-    }
-
-    void boirePotionDeVie(int quantitePotion)
-    {
-
-    }
-
-    void changerArme(string nomNouvelleArme, int degatsNouvelleArme)
-    {
-
-    }
-
-    bool estVivant()
-    {
-
-    }
-
-private:
-
-    // Attributs
-    int m_vie;
-    int m_mana;
-    string m_nomArme;
-    int m_degatsArme;
-};
-
-#endif
 
 int main()
 {
     Personnage david, goliath;
-    //Création de 2 objets de type Personnage : david et goliath
+    Personnage Julien{"Tapette a mouche", 2};
+    Personnage Jules(Julien);
+    Personnage Arthur {"Excalibur" , 50 };
 
     goliath.attaquer(david);    //goliath attaque david
     david.boirePotionDeVie(20); //david récupère 20 de vie en buvant une potion
