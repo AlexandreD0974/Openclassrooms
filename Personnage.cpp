@@ -3,18 +3,19 @@
 //
 
 #include "Personnage.h"
+#include <iostream>
 
 using namespace std;
 
 Personnage::Personnage(std::string nomArme, int degatsArme) {
-    m_nomArme = nomArme;
-    m_degatsArme = degatsArme;
+    m_arme = {nomArme, degatsArme};
 }
 
 Personnage::Personnage(Personnage const &autre) {
-    m_nomArme = autre.m_nomArme;
-    m_degatsArme = autre.m_degatsArme;
+    m_arme = autre.m_arme;
 }
+
+
 
 
 void Personnage::recevoirDegats(int nbDegats){
@@ -28,7 +29,7 @@ void Personnage::recevoirDegats(int nbDegats){
 }
 
 void Personnage::attaquer(Personnage &cible){
-    cible.recevoirDegats(m_degatsArme);
+    cible.recevoirDegats(m_arme.getdegats());
     //On inflige à la cible les dégâts que cause notre arme
 }
 
@@ -42,12 +43,22 @@ void Personnage::boirePotionDeVie(int quantitePotion){
 }
 
 void Personnage::changerArme(string nomNouvelleArme, int degatsNouvelleArme){
-    m_nomArme = nomNouvelleArme;
-    m_degatsArme = degatsNouvelleArme;
+    m_arme.changer(nomNouvelleArme, degatsNouvelleArme);
 }
 
 bool Personnage::estVivant(){
     return m_vie > 0;
+}
+
+void Personnage::afficherEtat() {
+    cout << "vie : " << m_vie << endl;
+    cout << "mana : " << m_mana << endl;
+    cout << "Nom de l'arme : " << m_arme.getNom() << endl;
+    cout << "Nombre de degats : " << m_arme.getdegats() << endl;
+
+
+
+
 }
 
 

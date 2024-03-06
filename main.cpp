@@ -6,10 +6,11 @@ using namespace std;
 
 int main()
 {
-    Personnage david, goliath;
+    Personnage david, goliath("Epee aiguisee", 20);
     Personnage Julien{"Tapette a mouche", 2};
     Personnage Jules(Julien);
     Personnage Arthur {"Excalibur" , 50 };
+    Personnage Malenia {"Lame danseuse" , 100};
 
     goliath.attaquer(david);    //goliath attaque david
     david.boirePotionDeVie(20); //david récupère 20 de vie en buvant une potion
